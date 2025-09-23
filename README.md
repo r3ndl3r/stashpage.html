@@ -10,7 +10,6 @@ All configuration is stored locally in your browser, requiring no backend or ser
 * **Drag & Drop**: Easily rearrange categories to your liking in edit mode.
 * **Import/Export**: Back up your configuration to a JSON file or move it to another browser with ease via the settings menu.
 * **Responsive Design**: Looks great on both desktop and mobile devices.
-* **CSS-Only Background**: A beautiful, animated gradient background with no external image requests.
 
 ### [LIVE DEMO](https://r3ndl3r.github.io/stashpage/stashpage.html)
 
