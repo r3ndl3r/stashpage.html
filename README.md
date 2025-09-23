@@ -4,13 +4,13 @@ Stashpage is a clean, modern, and fully standalone startpage/dashboard for your 
 All configuration is stored locally in your browser, requiring no backend or server-side processing.
 
 ## Features
-* Standalone & Portable: Runs entirely from a single *.html file.
-* Local Storage: All your apps and categories are saved in your browser's localStorage.
-* View & Edit Modes: A simple toggle to switch between a clean dashboard and a powerful editing interface.
-* Drag & Drop: Easily rearrange categories to your liking in edit mode.
-* Import/Export: Back up your configuration to a JSON file or move it to another browser with ease via the settings menu.
-* Responsive Design: Looks great on both desktop and mobile devices.
-* CSS-Only Background: A beautiful, animated gradient background with no external image requests.
+* **Standalone & Portable**: Runs entirely from a single *.html file.
+* **Local Storage**: All your apps and categories are saved in your browser's localStorage.
+* **View & Edit Modes**: A simple toggle to switch between a clean dashboard and a powerful editing interface.
+* **Drag & Drop**: Easily rearrange categories to your liking in edit mode.
+* **Import/Export**: Back up your configuration to a JSON file or move it to another browser with ease via the settings menu.
+* **Responsive Design**: Looks great on both desktop and mobile devices.
+* **CSS-Only Background**: A beautiful, animated gradient background with no external image requests.
 
 ![Screenshot.](https://github.com/r3ndl3r/stashpage/blob/main/screenshot.png?raw=true)
 
