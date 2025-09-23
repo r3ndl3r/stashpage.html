@@ -446,6 +446,17 @@
         
         // --- CRUD (Create, Read, Update, Delete) Operations ---
 
+        function updatePositionsInData() {
+            document.querySelectorAll('#dashboard-canvas .card-window').forEach(card => {
+                const title = card.dataset.categoryTitle;
+                const category = dashboardData.find(c => c.title === title);
+                if (category) {
+                    category.x = parseInt(card.style.left, 10) || 0;
+                    category.y = parseInt(card.style.top, 10) || 0;
+                }
+            });
+        }
+        
         /**
          * Populates the category dropdown in the "Add App" form.
          */
@@ -460,11 +471,12 @@
                 select.appendChild(option);
             });
         }
-        
+
         /**
          * Adds a new app to the selected category in the `dashboardData` array and re-renders.
          */
         function addApp() {
+            updatePositionsInData();
             const name = document.getElementById('new-app-name').value.trim();
             const url = document.getElementById('new-app-url').value.trim();
             const icon = document.getElementById('new-app-icon').value.trim();
@@ -488,6 +500,7 @@
          * Adds a new category to the `dashboardData` array and re-renders.
          */
         function addCategory() {
+            updatePositionsInData();
             const name = document.getElementById('new-category-name').value.trim();
             if (!name) {
                 showAlert('Category name is required.');
@@ -502,7 +515,7 @@
             updateCategoryDropdown();
             document.getElementById('new-category-name').value = '';
         }
-        
+
         /**
          * Opens the edit modal with a form for either an app or a category.
          * @param {HTMLElement} btn - The button element that was clicked.
@@ -540,11 +553,12 @@
          * Saves changes from the "Edit App" modal to the `dashboardData` array.
          */
         function saveAppChanges() {
+            updatePositionsInData();
             const newName = document.getElementById('edit-app-name').value.trim();
             const newUrl = document.getElementById('edit-app-url').value.trim();
             const newIcon = document.getElementById('edit-app-icon').value.trim();
             if (!newName || !newUrl) return showAlert('App Name and URL are required.');
-            
+    
             const oldName = currentEditElement.dataset.name;
             const categoryTitle = currentEditElement.closest('.card-window').dataset.categoryTitle;
             const category = dashboardData.find(c => c.title === categoryTitle);
@@ -562,9 +576,9 @@
          * Saves changes from the "Edit Category" modal to the `dashboardData` array.
          */
         function saveCategoryChanges() {
+            updatePositionsInData();
             const newTitle = document.getElementById('edit-category-title').value.trim();
             if (!newTitle) return showAlert('Category title is required.');
-            
             const oldTitle = currentEditElement.dataset.categoryTitle;
             const category = dashboardData.find(c => c.title === oldTitle);
             if (category) {
@@ -580,6 +594,7 @@
         function deleteApp(btn) {
             showConfirm('Delete this app?', confirmed => {
                 if (confirmed) {
+                    updatePositionsInData();
                     const appName = btn.closest('.app-tile').dataset.name;
                     const categoryTitle = btn.closest('.card-window').dataset.categoryTitle;
                     const category = dashboardData.find(c => c.title === categoryTitle);
@@ -597,17 +612,19 @@
         function deleteCategory(btn) {
             showConfirm('Delete this entire category?', confirmed => {
                 if (confirmed) {
+                    updatePositionsInData();
                     const categoryTitle = btn.closest('.card-window').dataset.categoryTitle;
                     dashboardData = dashboardData.filter(c => c.title !== categoryTitle);
                     renderDashboard();
                 }
             });
         }
-        
+
         /**
          * Moves an app up one position in its category's list.
          */
         function moveAppUp(btn) {
+            updatePositionsInData();
             const appTile = btn.closest('.app-tile');
             const appName = appTile.dataset.name;
             const categoryTitle = appTile.closest('.card-window').dataset.categoryTitle;
@@ -624,6 +641,7 @@
          * Moves an app down one position in its category's list.
          */
         function moveAppDown(btn) {
+            updatePositionsInData();
             const appTile = btn.closest('.app-tile');
             const appName = appTile.dataset.name;
             const categoryTitle = appTile.closest('.card-window').dataset.categoryTitle;
@@ -635,19 +653,19 @@
                 renderDashboard();
             }
         }
-        
+
         // --- Generic Modal Functions ---
 
         /**
          * Displays a simple alert modal with an OK button.
          * @param {string} message - The message to display.
-         */
+         */        
         function showAlert(message) {
             const modalContent = document.getElementById('modal-content');
             modalContent.innerHTML = `<p class="text-white mb-4">${message}</p><div class="flex justify-end"><button type="button" class="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded" onclick="closeModal()">OK</button></div>`;
             document.getElementById('modal').classList.add('is-visible');
         }
-        
+
         /**
          * Displays a confirmation modal with OK and Cancel buttons.
          * @param {string} message - The confirmation message.
@@ -676,7 +694,7 @@
             if (confirmCallback) confirmCallback(true);
             closeModal();
         }
-        
+
         // --- Settings (Import/Export) Functions ---
 
         /**
@@ -723,7 +741,6 @@
         function importData(event) {
             const file = event.target.files[0];
             if (!file) return;
-
             const reader = new FileReader();
             reader.onload = function(e) {
                 try {
@@ -744,7 +761,7 @@
             reader.readAsText(file);
             event.target.value = null; // Reset input for re-uploading the same file
         }
-        
+
         // --- Initial Load ---
 
         /**
@@ -757,4 +774,3 @@
      </script>
 </body>
 </html>
-
