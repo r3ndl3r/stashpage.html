@@ -12,6 +12,9 @@ All configuration is stored locally in your browser, requiring no backend or ser
 * **Responsive Design**: Looks great on both desktop and mobile devices.
 * **CSS-Only Background**: A beautiful, animated gradient background with no external image requests.
 
+### [LIVE DEMO](https://r3ndl3r.github.io/stashpage/stashpage.html)
+
+### Screenshots
 ![Screenshot.](https://github.com/r3ndl3r/stashpage/blob/main/screenshot.png?raw=true)
 
 ## Usage
