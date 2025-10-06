@@ -14,7 +14,7 @@ All configuration is stored locally in your browser, requiring no backend or ser
 ### [LIVE DEMO](https://r3ndl3r.github.io/stashpage.html/stashpage.html)
 
 ### Screenshots
-![Screenshot.](https://github.com/r3ndl3r/stashpage/blob/main/screenshot.png?raw=true)
+![Screenshot.](https://github.com/r3ndl3r/stashpage.html/blob/main/screenshot.png?raw=true)
 
 ## Usage
 1. Download stashpage.html.
