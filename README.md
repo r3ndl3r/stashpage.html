@@ -11,7 +11,7 @@ All configuration is stored locally in your browser, requiring no backend or ser
 * **Import/Export**: Back up your configuration to a JSON file or move it to another browser with ease via the settings menu.
 * **Responsive Design**: Looks great on both desktop and mobile devices.
 
-### [LIVE DEMO](https://r3ndl3r.github.io/stashpage/stashpage.html)
+### [LIVE DEMO](https://r3ndl3r.github.io/stashpage.html/stashpage.html)
 
 ### Screenshots
 ![Screenshot.](https://github.com/r3ndl3r/stashpage/blob/main/screenshot.png?raw=true)
